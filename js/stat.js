@@ -30,8 +30,8 @@ window.renderStatistics = function (ctx, players, times) {
 
   ctx.fillStyle = '#000';
   ctx.font = '16px PT Mono';
-  ctx.fillText('Ура вы победили!', 120, 40);
-  ctx.fillText('Список результатов: ', 120, 60);
+  ctx.fillText('Ура вы победили!', CLOUD_X + GAP * 2, FONT_GAP - CLOUD_Y);
+  ctx.fillText('Список результатов: ', CLOUD_X + GAP * 2, FONT_GAP + CLOUD_Y);
 
   var maxTime = getMaxElement(times);
   // var players = ['Вы', 'Иван', 'Юлия', 'Кекс'];
