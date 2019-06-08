@@ -7,7 +7,6 @@ var GAP = 10;
 var FONT_GAP = 50;
 var TEXT_WIDTH = 40;
 var MAX_BAR_HEIGHT = 150;
-var pointX = CLOUD_X + FONT_GAP + (FONT_GAP + TEXT_WIDTH) * i;
 
 
 var renderCloud = function (ctx, x, y, color) {
@@ -38,9 +37,12 @@ window.renderStatistics = function (ctx, players, times) {
   // var players = ['Вы', 'Иван', 'Юлия', 'Кекс'];
 
   for (var i = 0; i < players.length; i++) {
-    ctx.fillText(Math.round(times[i]), pointX, (MAX_BAR_HEIGHT - MAX_BAR_HEIGHT * times[i]) / maxTime - (CLOUD_Y + GAP));
+    var pointX = CLOUD_X + FONT_GAP + (FONT_GAP + TEXT_WIDTH) * i;
+    var pointY = (MAX_BAR_HEIGHT - MAX_BAR_HEIGHT * times[i]) / maxTime;
+    var widthColumn = CLOUD_Y + FONT_GAP * 5 - GAP;
+    ctx.fillText(Math.round(times[i]), pointX, pointY + (CLOUD_Y + GAP));
     ctx.fillText(players[i], pointX, CLOUD_Y + FONT_GAP * 5 + GAP);
-    ctx.fillRect(pointX, CLOUD_Y + FONT_GAP * 5 - GAP, TEXT_WIDTH, (MAX_BAR_HEIGHT - MAX_BAR_HEIGHT * times[i]) / maxTime);
+    ctx.fillRect(pointX, CLOUD_Y + FONT_GAP * 5 - GAP, TEXT_WIDTH, pointY);
   }
 
 
