@@ -37,14 +37,15 @@ window.renderStatistics = function (ctx, players, times) {
   // var players = ['Вы', 'Иван', 'Юлия', 'Кекс'];
 
   for (var i = 0; i < players.length; i++) {
-    var pointX = CLOUD_X + FONT_GAP + (FONT_GAP + TEXT_WIDTH) * i;
-    var pointY = (MAX_BAR_HEIGHT - MAX_BAR_HEIGHT * times[i]) / maxTime;
-    var widthColumn = CLOUD_Y + FONT_GAP * 5 - GAP;
-    ctx.fillText(Math.round(times[i]), pointX, pointY + (CLOUD_Y + GAP));
-    ctx.fillText(players[i], pointX, CLOUD_Y + FONT_GAP * 5 + GAP);
-    ctx.fillRect(pointX, CLOUD_Y + FONT_GAP * 5 - GAP, TEXT_WIDTH, pointY);
-  }
+     var pointX = CLOUD_X + FONT_GAP + (FONT_GAP + TEXT_WIDTH) * i;
+     var pointY = (MAX_BAR_HEIGHT - MAX_BAR_HEIGHT * times[i]) / maxTime;
+     var heightColumn = CLOUD_Y + FONT_GAP * 5;
 
+     'hsl(240,' + Math.random() * 100 + '%, 50%)'
+     ctx.fillText(Math.round(times[i]), pointX, heightColumn + pointY - GAP - CLOUD_Y);
+     ctx.fillText(players[i], pointX, heightColumn + GAP);
+     ctx.fillRect(pointX, heightColumn - GAP, TEXT_WIDTH, pointY);
+   }
 
   // var playerIndex = 0;
   // var playerName = 'Вы';
