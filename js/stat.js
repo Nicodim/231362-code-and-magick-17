@@ -24,18 +24,14 @@ var getMaxElement = function (arr) {
   return maxElement;
 };
 
-var getRandomColor = function(players) {
-  var colorColumn = players[i];
-  for (var i = 0; i < players.length; i++) {
-    if (players[i] === 'Вы') {
-      ctx.fillStyle = players[i] = 'red';
-    }
-    else {
-      ctx.fillStyle = players[i] = 'rgba(0, 0, 255, ' + randomColor + ')';
-    }
-  }
-  return colorColumn;
+var color = names[i] === 'Вы' ? 'rgba(255, 0 0, 1)' : getRandomColor ();
+
+
+var drawRect = function(ctx, x, y, height , width, color) {
+  ctx.fillStyle = color;
+  ctx.fillRect(x, y, height , width)
 };
+
 
 window.renderStatistics = function (ctx, players, times) {
   renderCloud(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, 'rgba(0, 0, 0, 0.7)');
@@ -53,17 +49,37 @@ window.renderStatistics = function (ctx, players, times) {
     var pointY = (MAX_BAR_HEIGHT - MAX_BAR_HEIGHT * times[i]) / maxTime;
     var heightColumn = CLOUD_Y + FONT_GAP * 5;
 
-    ctx.fillStyle = '#000';
+    // ctx.fillStyle = '#000';
     ctx.fillText(Math.round(times[i]), pointX, heightColumn + pointY - GAP - CLOUD_Y);
     ctx.fillText(players[i], pointX, heightColumn + GAP);
-    // if (players[i] === 'Вы') {
-    //   ctx.fillStyle = 'red';
-    // }
-    // else {
-    //   ctx.fillStyle = 'rgba(0, 0, 255, ' + randomColor + ')';
-    // }
-    ctx.fillRect(pointX, heightColumn - GAP, TEXT_WIDTH, pointY);
+    // ctx.fillRect(pointX, heightColumn - GAP, TEXT_WIDTH, pointY);
+    drawRect(ctx, pointX, heightColumn - GAP, TEXT_WIDTH, pointY, color);
   }
 };
+
+
+
+
+
+
+// var drawText  = function(ctx, text, x, y, color) {
+//     ctx.fillStyle = color;
+//     ctx.fillText(text, x, y);
+// }
+// var color = names[i] === 'Вы' ? 'rgba(255, 0 0, 1)' : getRandomColor ();
+//
+//
+// var drawRect = function(ctx, x, y, TEXT_WIDTH, color) {
+//   ctx.fillStyle = color;
+//   ctx.fillRect(x, heightColumn - GAP, TEXT_WIDTH, y);
+// };
+
+
+// if (players[i] === 'Вы') {
+//   ctx.fillStyle = 'red';
+// }
+// else {
+//   ctx.fillStyle = 'rgba(0, 0, 255, ' + randomColor + ')';
+// }
 
   // var players = ['Вы', 'Иван', 'Юлия', 'Кекс'];
