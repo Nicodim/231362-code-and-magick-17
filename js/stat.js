@@ -40,8 +40,13 @@ window.renderStatistics = function (ctx, players, times) {
      var pointX = CLOUD_X + FONT_GAP + (FONT_GAP + TEXT_WIDTH) * i;
      var pointY = (MAX_BAR_HEIGHT - MAX_BAR_HEIGHT * times[i]) / maxTime;
      var heightColumn = CLOUD_Y + FONT_GAP * 5;
+     var randomColor = Math.random().toFixed(2);
 
-     'hsl(240,' + Math.random() * 100 + '%, 50%)'
+     if ([i] = 'Вы') {
+       ctx.fillStyle = "red";
+     }
+
+     ctx.fillStyle = 'rgba(0, 0, 255, ' + randomColor + ')';
      ctx.fillText(Math.round(times[i]), pointX, heightColumn + pointY - GAP - CLOUD_Y);
      ctx.fillText(players[i], pointX, heightColumn + GAP);
      ctx.fillRect(pointX, heightColumn - GAP, TEXT_WIDTH, pointY);
