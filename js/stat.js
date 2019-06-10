@@ -24,6 +24,19 @@ var getMaxElement = function (arr) {
   return maxElement;
 };
 
+var getRandomColor = function(players) {
+  var colorColumn = players[i];
+  for (var i = 0; i < players.length; i++) {
+    if (players[i] === 'Вы') {
+      ctx.fillStyle = players[i] = 'red';
+    }
+    else {
+      ctx.fillStyle = players[i] = 'rgba(0, 0, 255, ' + randomColor + ')';
+    }
+  }
+  return colorColumn;
+};
+
 window.renderStatistics = function (ctx, players, times) {
   renderCloud(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, 'rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
@@ -34,51 +47,23 @@ window.renderStatistics = function (ctx, players, times) {
   ctx.fillText('Список результатов: ', CLOUD_X + GAP * 2, FONT_GAP + CLOUD_Y);
 
   var maxTime = getMaxElement(times);
-  // var players = ['Вы', 'Иван', 'Юлия', 'Кекс'];
 
   for (var i = 0; i < players.length; i++) {
-     var pointX = CLOUD_X + FONT_GAP + (FONT_GAP + TEXT_WIDTH) * i;
-     var pointY = (MAX_BAR_HEIGHT - MAX_BAR_HEIGHT * times[i]) / maxTime;
-     var heightColumn = CLOUD_Y + FONT_GAP * 5;
-     var randomColor = Math.random().toFixed(2);
+    var pointX = CLOUD_X + FONT_GAP + (FONT_GAP + TEXT_WIDTH) * i;
+    var pointY = (MAX_BAR_HEIGHT - MAX_BAR_HEIGHT * times[i]) / maxTime;
+    var heightColumn = CLOUD_Y + FONT_GAP * 5;
 
-     if ([i] = 'Вы') {
-       ctx.fillStyle = "red";
-     }
-
-     ctx.fillStyle = 'rgba(0, 0, 255, ' + randomColor + ')';
-     ctx.fillText(Math.round(times[i]), pointX, heightColumn + pointY - GAP - CLOUD_Y);
-     ctx.fillText(players[i], pointX, heightColumn + GAP);
-     ctx.fillRect(pointX, heightColumn - GAP, TEXT_WIDTH, pointY);
-   }
-
-  // var playerIndex = 0;
-  // var playerName = 'Вы';
-  //
-  // ctx.fillStyle = '#000';
-  // ctx.fillText('Вы', 150, 270);
-  // ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-  // ctx.fillRect(150, 90, 40, 150);
-  //
-  // var playerIndex = 1;
-  // var playerName = 'Иван';
-  //
-  // ctx.fillStyle = '#000';
-  // ctx.fillText('Иван', 200, 270);
-  // ctx.fillRect(200, 90, 40, 150);
-  //
-  // var playerIndex = 2;
-  // var playerName = 'Юлия';
-  //
-  // ctx.fillStyle = '#000';
-  // ctx.fillText('Юлия', 250, 270);
-  // ctx.fillRect(250, 90, 40, 150);
-  //
-  // var playerIndex = 3;
-  // var playerName = 'Кекс';
-  //
-  // ctx.fillStyle = '#000';
-  // ctx.fillText('Кекс', 300, 270);
-  // ctx.fillRect(300, 90, 40, 150);
-
+    ctx.fillStyle = '#000';
+    ctx.fillText(Math.round(times[i]), pointX, heightColumn + pointY - GAP - CLOUD_Y);
+    ctx.fillText(players[i], pointX, heightColumn + GAP);
+    // if (players[i] === 'Вы') {
+    //   ctx.fillStyle = 'red';
+    // }
+    // else {
+    //   ctx.fillStyle = 'rgba(0, 0, 255, ' + randomColor + ')';
+    // }
+    ctx.fillRect(pointX, heightColumn - GAP, TEXT_WIDTH, pointY);
+  }
 };
+
+  // var players = ['Вы', 'Иван', 'Юлия', 'Кекс'];
