@@ -24,20 +24,19 @@ var getMaxElement = function (arr) {
   return maxElement;
 };
 
-var randomColor = Math.random().toFixed(2);
-
-var getRandomColor = function() {
-    return 'rgba(0, 0, 255, ' + randomColor + ')';
+var getRandomColor = function () {
+  var randomColor = Math.random().toFixed(2);
+  return 'rgba(0, 0, 255, ' + randomColor + ')';
 };
 
-var drawText = function(ctx, text, x, y, color) {
-    ctx.fillStyle = color;
-    ctx.fillText(text, x, y);
-};
-
-var drawRect = function(ctx, x, y, height, width, color) {
+var drawText = function (ctx, text, x, y, color) {
   ctx.fillStyle = color;
-  ctx.fillRect(x, y, height, width)
+  ctx.fillText(text, x, y);
+};
+
+var drawRect = function (ctx, x, y, height, width, color) {
+  ctx.fillStyle = color;
+  ctx.fillRect(x, y, height, width);
 };
 
 window.renderStatistics = function (ctx, players, times) {
@@ -55,40 +54,13 @@ window.renderStatistics = function (ctx, players, times) {
     var pointX = CLOUD_X + FONT_GAP + (FONT_GAP + TEXT_WIDTH) * i;
     var pointY = (MAX_BAR_HEIGHT - MAX_BAR_HEIGHT * times[i]) / maxTime;
     var heightColumn = CLOUD_Y + FONT_GAP * 5;
-    var color = players[i] === 'Вы' ? 'rgba(255, 0 0, 1)' : getRandomColor ();
-
-    // ctx.fillText(Math.round(times[i]), pointX, heightColumn + pointY - GAP - CLOUD_Y);
-    drawText(Math.round(times[i]), pointX,heightColumn + pointY - GAP - CLOUD_Y, color)
-    drawText(players[i], pointX, heightColumn + GAP, color)
-    // ctx.fillText(players[i], pointX, heightColumn + GAP);
-    // ctx.fillRect(pointX, heightColumn - GAP, TEXT_WIDTH, pointY);
+    var color = players[i] === 'Вы' ? 'rgba(255, 0, 0, 1)' : getRandomColor();
+    drawText(ctx, Math.round(times[i]), pointX, heightColumn + pointY - GAP - CLOUD_Y, color);
+    drawText(ctx, players[i], pointX, heightColumn + GAP, color);
     drawRect(ctx, pointX, heightColumn - GAP, TEXT_WIDTH, pointY, color);
   }
 };
 
-
-
-
-
-
-// var drawText  = function(ctx, text, x, y, color) {
-//     ctx.fillStyle = color;
-//     ctx.fillText(text, x, y);
-// }
-// var color = names[i] === 'Вы' ? 'rgba(255, 0 0, 1)' : getRandomColor ();
-//
-//
-// var drawRect = function(ctx, x, y, TEXT_WIDTH, color) {
-//   ctx.fillStyle = color;
-//   ctx.fillRect(x, heightColumn - GAP, TEXT_WIDTH, y);
-// };
-
-
-// if (players[i] === 'Вы') {
-//   ctx.fillStyle = 'red';
-// }
-// else {
-//   ctx.fillStyle = 'rgba(0, 0, 255, ' + randomColor + ')';
-// }
-
-  // var players = ['Вы', 'Иван', 'Юлия', 'Кекс'];
+// ctx.fillText(Math.round(times[i]), pointX, heightColumn + pointY - GAP - CLOUD_Y);
+// ctx.fillText(players[i], pointX, heightColumn + GAP);
+// ctx.fillRect(pointX, heightColumn - GAP, TEXT_WIDTH, pointY);
