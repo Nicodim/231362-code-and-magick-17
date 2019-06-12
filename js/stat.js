@@ -55,6 +55,7 @@ window.renderStatistics = function (ctx, players, times) {
     var pointY = (MAX_BAR_HEIGHT - MAX_BAR_HEIGHT * times[i]) / maxTime;
     var heightColumn = CLOUD_Y + FONT_GAP * 5;
     var color = players[i] === 'Вы' ? 'rgba(255, 0, 0, 1)' : getRandomColor();
+
     drawText(ctx, Math.round(times[i]), pointX, heightColumn + pointY - GAP - CLOUD_Y, color);
     drawText(ctx, players[i], pointX, heightColumn + GAP, color);
     drawRect(ctx, pointX, heightColumn - GAP, TEXT_WIDTH, pointY, color);
