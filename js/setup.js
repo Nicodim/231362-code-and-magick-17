@@ -26,9 +26,11 @@ var getRandomEyes = function () {
 };
 
 var createNewArr = function (i) {
-var ojectArr = i;
-for (i = 0, i <= 4, i++) {
-
+var ojectArr = [];
+for (i = 0, i < 4, i++) {
+var newObject = function (name, surName, coatColor, eyesColor) {
+}
+ojectArr[i] = newObject;
 }
 return ojectArr;
 };
