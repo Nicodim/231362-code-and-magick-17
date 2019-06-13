@@ -25,12 +25,17 @@ var getRandomEyes = function () {
   return randomEyes;
 };
 
-var createNewArr = function (i) {
+var createNewArr = function (n) {
 var ojectArr = [];
-for (i = 0, i < 4, i++) {
-var newObject = function (name, surName, coatColor, eyesColor) {
+for (i = 0, i < n, i++) {
+var NewObject = function (name, surName, coatColor, eyesColor) {
+  this.name = name;
+  this.surName = surName;
+  this.coatColor = coatColor;
+  this.eyesColor = eyesColor;
 }
-ojectArr[i] = newObject;
+var newObject = new NewObject(name, surName, coatColor, eyesColor);
+ojectArr[n] = newObject;
 }
 return ojectArr;
 };
