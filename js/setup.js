@@ -16,7 +16,7 @@ var getRandomName = function (fistName, surName) {
 };
 
 var getRandomCoat = function () {
-  var randomCoat =  coatColor[Math.floor(Math.random()*color.length)];
+  var randomCoat =  coatColor[Math.floor(Math.random()*coatColor.length)];
   return randomCoat;
 };
 
@@ -28,7 +28,7 @@ var getRandomEyes = function () {
 var createNewArr = function (n) {
   var ojectArr = [];
   for (i = 0; i < n; i++) {
-    ojectArr[n] = {name: getRandomName(), coatColor: getRandomCoat(), eyesColor: getRandomEyes()}
+    ojectArr[i] = {name: getRandomName(fistName, surName), coatColor: getRandomCoat(), eyesColor: getRandomEyes()}
   }
   return ojectArr;
 }
@@ -41,18 +41,21 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
 .querySelector('.setup-similar-item');
 
 
-var newWizard = function (n) {
+var newWizard = function (data) {
   var wizardArr = [];
-  for (var i = 0; i < n; i++) {
+  for (var i = 0; i < data.length; i++) {
     var wizardElement = similarWizardTemplate.cloneNode(true);
-    wizardElement.querySelector('.setup-similar-label').textContent = ojectArr[n].name;
-    wizardElement.querySelector('.wizard-coat').style.fill = ojectArr[n].coatColor;
-    wizardElement.querySelector('.wizard-eyes').style.fill = ojectArr[n].eyesColor;
-    // similarListElement.appendChild(wizardElement);
+    wizardElement.querySelector('.setup-similar-label').textContent = data[n].name;
+    wizardElement.querySelector('.wizard-coat').style.fill = data[n].coatColor;
+    wizardElement.querySelector('.wizard-eyes').style.fill = data[n].eyesColor;
+    wizardArr.push(wizardElement);
   }
   return wizardArr;
 };
 
+var objectArr = createNewArr(4);
+
+var wizardArr = newWizard(objectArr);
 
 // var renderWizard = function (wizard) {
 //   var wizardElement = similarWizardTemplate.cloneNode(true);
@@ -63,8 +66,14 @@ var newWizard = function (n) {
 //   return wizardElement;
 // }
 
-var fragment = document.setup-similar-list.createDocumentFragment();
+var fragment = document.createDocumentFragment();
+var wizardArr = function newWizard(4) {
+
+}
+
+var ojectArr = createNewArr(4);
+
 for (var i = 0; i < ojectArr.length; i++) {
-  fragment.appendChild(newWizard(ojectArr[n]));
+  fragment.appendChild(wizardArr.length);
 };
-similarListElement.appendChild(fragment);
+similarListElement.appendChild(wizardArr[i]);
