@@ -10,7 +10,7 @@ var coatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)'
 var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
 
 
-var getRandomName = function(fistName, surName) {
+var getRandomName = function (fistName, surName) {
   var randomName = fistName[Math.floor(Math.random()*fistName.length)]  +  surName[Math.floor(Math.random()*surName.length)];
   return randomName;
 };
@@ -27,8 +27,7 @@ var getRandomEyes = function () {
 
 var createNewArr = function (n) {
   var ojectArr = [];
-  for (i = 0, i < n, i++) {
-
+  for (i = 0; i < n; i++) {
     ojectArr[n] = {name: getRandomName(), coatColor: getRandomCoat(), eyesColor: getRandomEyes()}
   }
   return ojectArr;
@@ -66,6 +65,6 @@ var newWizard = function (n) {
 
 var fragment = document.setup-similar-list.createDocumentFragment();
 for (var i = 0; i < ojectArr.length; i++) {
-  fragment.appendChild(renderWizard(ojectArr[i]));
-}
+  fragment.appendChild(newWizard(ojectArr[n]));
+};
 similarListElement.appendChild(fragment);
