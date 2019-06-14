@@ -11,17 +11,17 @@ var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
 
 
 var getRandomName = function (fistName, surName) {
-  var randomName = fistName[Math.floor(Math.random()*fistName.length)]  +  surName[Math.floor(Math.random()*surName.length)];
+  var randomName = fistName[Math.floor(Math.random()*fistName.length)]  + " " +  surName[Math.floor(Math.random()*surName.length)];
   return randomName;
 };
 
-var getRandomCoat = function () {
-  var randomCoat =  coatColor[Math.floor(Math.random()*coatColor.length)];
+var getRandomCoat = function (coat) {
+  var randomCoat =  coat[Math.floor(Math.random()*coatColor.length)];
   return randomCoat;
 };
 
-var getRandomEyes = function () {
-  var randomEyes = eyesColor[Math.floor(Math.random()*eyesColor.length)];
+var getRandomEyes = function (eyes) {
+  var randomEyes = eyes[Math.floor(Math.random()*eyesColor.length)];
   return randomEyes;
 };
 
@@ -58,7 +58,6 @@ var wizardArr = newWizard(objectArr);
 
 
 var fragment = document.createDocumentFragment();
-var ojectArr = createNewArr(4);
 
 for (var i = 0; i < wizardArr.length; i++) {
   fragment.appendChild(wizardArr[i]);
