@@ -67,13 +67,9 @@ var wizardArr = newWizard(objectArr);
 // }
 
 var fragment = document.createDocumentFragment();
-var wizardArr = function newWizard(4) {
-
-}
-
 var ojectArr = createNewArr(4);
 
-for (var i = 0; i < ojectArr.length; i++) {
+for (var i = 0; i < wizardArr.length; i++) {
   fragment.appendChild(wizardArr.length);
 };
 similarListElement.appendChild(wizardArr[i]);
