@@ -16,19 +16,19 @@ var getRandomName = function (fistName, surName) {
 };
 
 var getRandomCoat = function (coat) {
-  var randomCoat =  coat[Math.floor(Math.random()*coatColor.length)];
+  var randomCoat =  coat[Math.floor(Math.random()*coat.length)];
   return randomCoat;
 };
 
 var getRandomEyes = function (eyes) {
-  var randomEyes = eyes[Math.floor(Math.random()*eyesColor.length)];
+  var randomEyes = eyes[Math.floor(Math.random()*eyes.length)];
   return randomEyes;
 };
 
 var createNewArr = function (n) {
   var ojectArr = [];
   for (i = 0; i < n; i++) {
-    ojectArr[i] = {name: getRandomName(fistName, surName), coatColor: getRandomCoat(), eyesColor: getRandomEyes()}
+    ojectArr[i] = {name: getRandomName(fistName, surName), coatColor: getRandomCoat(coatColor), eyesColor: getRandomEyes(eyesColor)}
   }
   return ojectArr;
 }
