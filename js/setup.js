@@ -10,28 +10,28 @@ var coatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)'
 var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
 
 
-var getRandomName = function (fistName, surName) {
-  var randomName = fistName[Math.floor(Math.random()*fistName.length)]  + " " +  surName[Math.floor(Math.random()*surName.length)];
+var getRandomName = function (FistName, SurName) {
+  var randomName = FistName [Math.floor(Math.random() * fistName.length)] + ' ' + SurName [Math.floor(Math.random() * surName.length)];
   return randomName;
 };
 
 var getRandomCoat = function (coat) {
-  var randomCoat =  coat[Math.floor(Math.random()*coat.length)];
+  var randomCoat = coat[Math.floor(Math.random() * coat.length)];
   return randomCoat;
 };
 
 var getRandomEyes = function (eyes) {
-  var randomEyes = eyes[Math.floor(Math.random()*eyes.length)];
+  var randomEyes = eyes[Math.floor(Math.random() * eyes.length)];
   return randomEyes;
 };
 
 var createNewArr = function (n) {
   var ojectArr = [];
   for (i = 0; i < n; i++) {
-    ojectArr[i] = {name: getRandomName(fistName, surName), coatColor: getRandomCoat(coatColor), eyesColor: getRandomEyes(eyesColor)}
+    ojectArr[i] = {name: getRandomName(fistName, surName), coatColor: getRandomCoat(coatColor), eyesColor: getRandomEyes(eyesColor)};
   }
   return ojectArr;
-}
+};
 
 document.querySelector('.setup-similar').classList.remove('hidden');
 
@@ -61,5 +61,5 @@ var fragment = document.createDocumentFragment();
 
 for (var i = 0; i < wizardArr.length; i++) {
   fragment.appendChild(wizardArr[i]);
-};
+}
 similarListElement.appendChild(fragment);
